@@ -33,10 +33,14 @@ def get_req():
         title = topic.find('div', class_='topictitle').text.strip()
         points = topic.find('span', id=lambda x: x and x.startswith('tp')).text.strip()
         link = topic.find('a', rel='nofollow')['href']
+        # add URL 'https://'
+        if not link.startswith(('http://', 'https://')):
+            link = 'https://news.hada.io/' + link
+
         data.append({
             'title': title,
             'points': points,
-            'link': link
+            'link': link,
         })
 
     return data
