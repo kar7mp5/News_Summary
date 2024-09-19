@@ -24,13 +24,14 @@ pip3 install -r requirements.txt
 ```
 
 ## To Run the project
-- **frontend**  
+### Frontend
+
 ```zsh
 cd frontend
 yarn dev
 ```
 
-- **backend**  
+### Backend  
 ```zsh
 cd backend
 fastapi dev sever.py

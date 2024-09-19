@@ -8,3 +8,9 @@ pandas
 
 # Server
 fastapi[standard]
+
+# LLM
+langchain-core
+langchain-ollama
+chromadb
+sentence-transformers
