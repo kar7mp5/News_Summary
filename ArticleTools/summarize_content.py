@@ -64,4 +64,4 @@ def summarize_article(link):
     # Get the response
     response = qachain(prompt.format(system_prompt=system_prompt, user_prompt=user_prompt))
 
-    return response
+    return response['result']
