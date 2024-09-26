@@ -31,11 +31,15 @@ def summarize_article(link):
     model = Ollama(model='gemma2:2b', stop=["<|eot_id|>"]) # Added the stop token
 
     # Define user and system prompts
-    user_prompt = "Summarize the content and explain in detail by korean(한국어)."
-    system_prompt = """Think and write your step-by-step reasoning before responding.
-    Make sure you don't deviate from json grammar.
-    Please write all conversations in Korean(한국어).
-    """
+    user_prompt = f"Summarize the content and explain in detail. Please write the following link under the title {link}"
+    system_prompt = """\
+Think and write your step-by-step reasoning before responding.
+Make sure you don't deviate from json grammar.
+Write the article title using ### in Markdown syntax.
+The character limit is 150 characters.
+Please write all conversations in Korean(한국어).
+모든 답변을 한국어로 번역해서 작성해줘.
+"""
 
     # Initialize embeddings and vectorstore for each iteration
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
